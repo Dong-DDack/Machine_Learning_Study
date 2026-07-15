@@ -1,0 +1,151 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.rcParams['font.family'] = 'Malgun Gothic'
+# plt.rcParams['font.family'] = 'AppleGothic'
+plt.rcParams['figure.figsize'] = 12, 6
+plt.rcParams['font.size'] = 14
+plt.rcParams['axes.unicode_minus'] = False
+
+# 데이터 전처리 관련 ################################################
+# 결측치 처리
+from sklearn.impute import SimpleImputer
+# 표준화
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+# 인코더
+from sklearn.preprocessing import LabelEncoder
+# 원핫 인코더
+from sklearn.preprocessing import OneHotEncoder
+
+# 학습 모델 성능 관련 #######################################
+# 원하는 비율로 데이터를 나누기 위해
+from sklearn.model_selection import train_test_split
+# K-Fold 교차 검증
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold
+from sklearn.model_selection import StratifiedKFold
+# 학습 곡선
+from sklearn.model_selection import learning_curve
+# 하이퍼 파라미터 튜닝
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
+from scipy.stats import randint
+import optuna
+from optuna.samplers import TPESampler
+from optuna.pruners import MedianPruner
+optuna.logging.set_verbosity(optuna.logging.WARNING)
+
+# 모델 성능 평가 ########################
+# 회귀용
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import root_mean_squared_error
+from sklearn.metrics import r2_score
+# 분류용
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
+from sklearn.metrics import roc_curve
+from sklearn.metrics import auc
+from sklearn.metrics import roc_auc_score
+from sklearn.metrics import ConfusionMatrixDisplay
+
+# 피처 선택 #########################
+from sklearn.feature_selection import VarianceThreshold
+from sklearn.feature_selection import RFE
+from sklearn.inspection import permutation_importance
+
+# 학습 모델 ########################
+# 분류
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+from lightgbm import LGBMClassifier
+from xgboost import XGBClassifier 
+from sklearn.naive_bayes import GaussianNB
+from catboost import CatBoostClassifier
+from sklearn.naive_bayes import MultinomialNB
+
+# 회귀
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso
+from sklearn.linear_model import ElasticNet
+from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from lightgbm import LGBMRegressor
+from xgboost import XGBRegressor
+from sklearn.linear_model import BayesianRidge
+from catboost import CatBoostRegressor
+
+# 결정트리를 시각화할 수 있는 라이브러리
+from sklearn.tree import plot_tree
+
+# 차원 축소
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.manifold import TSNE
+
+# 연관 규칙 학습
+from mlxtend.preprocessing import TransactionEncoder
+from mlxtend.frequent_patterns import apriori
+from mlxtend.frequent_patterns import fpgrowth
+from mlxtend.frequent_patterns import association_rules
+
+# 군집
+from sklearn.cluster import KMeans
+from sklearn.cluster import DBSCAN
+from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
+from sklearn.mixture import GaussianMixture
+from sklearn.cluster import MeanShift, estimate_bandwidth
+
+# 파이프라인
+from sklearn.pipeline import Pipeline
+
+# KDE를 그리기 위한 통계값을 구할 수 있는 함수
+from scipy.stats import gaussian_kde
+
+# 피어슨 상관 계수 (연속형 수치형 데이터 vs 연속형 수치형 데이터)
+from scipy.stats import pearsonr
+# 카이제곱 검증 (범주형 데이터 vs 범주형 데이터, 순위X)
+from scipy.stats import chi2_contingency
+# 스피어만 상관계수 (범주형 데이터 vs 범주형 데이터, 순위O)
+from scipy.stats import spearmanr
+# 포인트 이분 상관계수 (범주형 데이터 vs 연속형 수치형 데이터)
+from scipy.stats import pointbiserialr
+
+# 오버 샘플링
+from imblearn.over_sampling import SMOTE
+
+# 객체를 파일에 저장
+import pickle
+
+# 문장 데이터 관련
+# 단어 토큰화
+import nltk
+from nltk.tokenize import word_tokenize, sent_tokenize
+# 정규식 사용
+import re
+# 불용어 처리
+from nltk.corpus import stopwords
+# 어간 추출
+from nltk.stem import PorterStemmer
+# 표제어 추출
+from nltk.stem import WordNetLemmatizer
+# Bow와 TF-IDF를 위해..
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+
+# 불필요한 경고 뜨지 않게
+import warnings
+warnings.filterwarnings('ignore')

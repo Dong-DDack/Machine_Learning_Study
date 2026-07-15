@@ -1,0 +1,32 @@
+pip install numpy==2.4.2
+pip install pandas==3.0.0
+pip install matplotlib==3.10.8
+pip install scipy==1.17.0
+pip install seaborn==0.13.2
+pip install scikit-learn==1.8.0
+pip install lightgbm==4.6.0
+pip install xgboost==3.2.0
+pip install mlxtend==0.24.0
+
+
+pip install --upgrade numpy==2.4.2
+pip install --upgrade pandas==3.0.0
+pip install --upgrade matplotlib==3.10.8
+pip install --upgrade scipy==1.17.0
+pip install --upgrade seaborn==0.13.2
+pip install --upgrade scikit-learn==1.8.0
+pip install --upgrade lightgbm==4.6.0
+pip install --upgrade xgboost==3.2.0
+pip install --upgrade mlxtend==0.24.0
+
+-- CatBoost 용. 가상환경을 새롭게 만들겁니다. (python 3.12)
+pip install jupyter
+pip install numpy==2.4.2
+pip install pandas==3.0.0
+pip install matplotlib==3.10.8
+pip install scipy==1.17.0
+pip install seaborn==0.13.2
+pip install scikit-learn==1.5.2
+pip install lightgbm==4.6.0
+pip install xgboost==3.2.0
+pip install catboost==1.2.8
